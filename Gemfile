@@ -9,6 +9,9 @@ gem 'sqlite3'
 #fitbit gem
 gem 'fitgem'
 
+#devise gem
+gem 'devise'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

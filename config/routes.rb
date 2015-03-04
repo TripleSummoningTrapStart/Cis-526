@@ -1,10 +1,23 @@
 Labyrinth::Application.routes.draw do
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  get 'gps#gps'
+
+  #for devise users
+  devise_for :users
+
+  #roots to profile on default
+  root 'profile#show'
+
+  ####this was breaking my db:migrates and rake routes
+  ####the problem is you need a view called get in the gps view folder
+  ###get 'gps#gps'
+
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

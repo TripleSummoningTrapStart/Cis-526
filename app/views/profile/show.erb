@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+    <div>Signed in as... <%= current_user.email %></div>
+<% end %>
+<li><%= link_to "Settings", edit_user_registration_path %></li>
+<li><%= link_to "Logout", destroy_user_session_path, :method=>'delete' %></li>
