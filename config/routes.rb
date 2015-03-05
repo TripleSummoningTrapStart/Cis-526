@@ -22,6 +22,9 @@ Labyrinth::Application.routes.draw do
 
   get 'home/home', :as => 'home'
 
+  get 'journey/relax', :as => 'relax'
+  #get 'journey/timed'
+
 
 
   # Example of regular route:
