@@ -1,0 +1,61 @@
+// Place all the styles related to the journey controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+			 background-image: image-url('Brick.jpg');
+			             background-size:contain;
+
+         }
+            h1 {
+                font-family: "Freestyle Script";
+                font-size: 200px;
+                color:whitesmoke;
+                font-weight:bold;
+                font-style: italic;
+                text-align: center;
+                text-transform: uppercase;
+            }
+			h2 {
+                font-family: "Freestyle Script";
+                font-size: 125px;
+                color:whitesmoke;
+                font-weight:bolder;
+                text-align: center;
+                text-transform: uppercase;
+            }
+            .help
+            {
+                font-family: "Freestyle Script";
+				font-size:80px;
+                color:whitesmoke;
+				text-align:center;
+            }
+          
+            
+			.list {
+			background:no-repeat;
+			background-size:cover;
+			background-position:center;
+			background-image: image-url('List.png');
+			font-size:110px;
+			text-align:center;
+			list-style:none;
+			height:1300px;
+			}
+			.list li{
+			margin-top:15px;
+			font-family:"Freestyle Script";
+			padding:40px;
+			font-size:100px;
+			}
+			back{
+			color:black;
+			margin-left:300px;
+			}
+			a{
+			text-decoration:none;
+			color:black;
+			}

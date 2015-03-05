@@ -1,0 +1,23 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+body { padding-left: 60px; }
+
+input[type="radio"], input[type="checkbox"] {
+    margin: -4px 0px 0px;
+    line-height: normal;
+}
+
+p {
+    margin: 5px 0px 5px;
+}
+
+label {
+    margin-bottom: 5px;
+    display: inline-block;
+}
