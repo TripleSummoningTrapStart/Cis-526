@@ -1,17 +1,20 @@
+<body id="relbod">
+
 <head>
 		<title>Relaxed Journey</title>
 	    
 	</head>
-<h1>Labyrinth</h1>
-<h2>Relaxed Mode</h2>
-		<p class="help">There are a large array of relaxing journeys to choose from</p>
+<h1 id="relhead">Labyrinth</h1>
+<h2 id="relhead2">Relaxed Mode</h2>
+		<p id="help">There are a large array of relaxing journeys to choose from</p>
 
-<div class="list">
+<div id="list">
 &nbsp
-<ul>
-<li>Easy</li>
-<li>Medium</li>
-<li>Hard</li>
+<ul id="relscroll">
+<li id="relitem"><%= link_to 'Easy' , labyrinth_path %></li>
+<li id="relitem">Medium</li>
+<li id="relitem">Hard</li>
 </ul>
 <back><%= link_to 'Back', home_path %></back>
 </div>
+</body>
