@@ -1,0 +1,6 @@
+	This sprint we planned on getting a getting all the different webpages at least connected and 
+semi-functional. This included a user sign-in page, Home page, and a gps page. We were able to do all 3. Oneil also worked on the CSS for the most of the pages. Sean also accomplished user authentication to allow people to log into account as well as change their information. Josh was able to get the gps to track a user location, however, he was not able to display an image like he hoped and plans to redo the gps using ruby instead of Javascript.
+	As a team, we scrummed multiple days a week to make sure everyone was on the same page. We knew 
+when people were having problems and were able to offer different solutions to help solve them. There was an issue with CSS mid-way through and we were able to get that resolved.
+	Next sprint, we plan to get fitbit authentication and integration into our app. We also plan to 
+work on the design to make it easier to read and navigate. Lastly, we plan to get the gps redone in ruby and hopefully get an image to work with gps tracking, to allow the main functionality of our app.
