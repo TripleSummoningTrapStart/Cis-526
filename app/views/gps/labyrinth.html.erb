@@ -1,44 +1,23 @@
 <h1>Labyrinth</h1>
 <meta name="viewport" content="width=620" />
 <title>geolocation</title>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <article>
-      <p>Finding your location: <span id="status">checking...</span></p>
+    
+	  <p>Latitude: <span id="lat">checking...</span></p>
+	  <p>Longitude: <span id="long">checking...</span></p>
     </article>
+	  <%= image_tag('easyLab1.png') %>
+  
 <script>
 function success(position) {
-  var s = document.querySelector('#status');
   
-  if (s.className == 'success') {
-    // not sure why we're hitting this twice in FF, I think it's to do with a cached result coming back    
-    return;
-  }
+  var la = document.querySelector('#lat');
+  var lo = document.querySelector('#long');
   
-  s.innerHTML = "found you!";
-  s.className = 'success';
-  
-  var mapcanvas = document.createElement('div');
-  mapcanvas.id = 'mapcanvas';
-  mapcanvas.style.height = '400px';
-  mapcanvas.style.width = '560px';
-    
-  document.querySelector('article').appendChild(mapcanvas);
-  
-  var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  var myOptions = {
-    zoom: 15,
-    center: latlng,
-    mapTypeControl: false,
-    navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  };
-  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-  
-  var marker = new google.maps.Marker({
-      position: latlng, 
-      map: map, 
-      title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
-  });
+  la.innerHTML = position.coords.latitude;
+  lo.innerHTML = position.coords.longitude;
+  navigator.geolocation.clearWatch(watchid);
+  var watchid = navigator.geolocation.watchPosition(success, error);
 }
 function error(msg) {
   var s = document.querySelector('#status');

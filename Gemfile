@@ -12,6 +12,8 @@ gem 'fitgem'
 #devise gem
 gem 'devise'
 
+#png manipulaiton gem
+gem 'chunky_png'
 #bootstrap
 gem 'twitter-bootstrap-rails'
 
