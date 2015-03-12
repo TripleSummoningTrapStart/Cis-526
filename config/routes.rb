@@ -13,7 +13,7 @@ Labyrinth::Application.routes.draw do
   devise_for :users
 
   #roots to profile on default
-  root 'profile#show'
+  root 'home#home'
 
 
   ####this was breaking my db:migrates and rake routes
@@ -23,7 +23,7 @@ Labyrinth::Application.routes.draw do
   get 'home/home', :as => 'home'
 
   get 'journey/relax', :as => 'relax'
-  #get 'journey/timed'
+  get 'journey/timed', :as => 'timed'
 
 
 
