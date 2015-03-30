@@ -13,14 +13,15 @@ Labyrinth::Application.routes.draw do
   devise_for :users
 
   #roots to profile on default
-  root 'profile#show'
+  root 'home#home'
 
 
   ####this was breaking my db:migrates and rake routes
   ####the problem is you need a view called get in the gps view folder
   get 'gps/labyrinth', :as => 'labyrinth'
-
-  get 'home/home', :as => 'home'
+  get 'gps/img', :as => 'images'
+  get 'gps/img/img_the_scream', :as => 'scream'
+  #get 'home/home', :as => 'home'
 
   get 'journey/relax', :as => 'relax'
   #get 'journey/timed'

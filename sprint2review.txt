@@ -1,0 +1,6 @@
+	This sprint we planned on finishing the map navigation part of our game as well as finishing up 
+authentication and overall web design of the app. We didn't get too much done on most of the fronts, Josh was able to get the app to load the image from the file onto a canvas object and is able to draw on it by detecting movement, but it still need a lot of fine tuning and other features. Sean was able to do fitbit intergation, but I believe he has forgotten to commit for a bit. Oneil had a lot of trouble with rails and his computer and was working on fixing that issue most of the time so was unable to actually progress with his part of the sprint.
+	As a team, this sprint was partically hard on us. There was a lot of issues with rails that we had
+to look at and debug, as well as other classes picked up pretty hard so our time was very limited.
+	Next sprint we hope to finish up what we didn't accomplish this sprint, as well as prepare our
+presentations for open house. If we finish the remainder of what we set out to accomplish then our app will be ready and we can work on the display
