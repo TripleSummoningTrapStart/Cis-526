@@ -1,21 +1,40 @@
 <h1>Labyrinth</h1>
 <meta name="viewport" content="width=620" />
-<title>geolocation</title>
-    <article>
+<canvas id="myCanvas" width="209" height="369" style="border:0px solid #000000;">
+</canvas>
+  <article>
     
 	  <p>Latitude: <span id="lat">checking...</span></p>
 	  <p>Longitude: <span id="long">checking...</span></p>
     </article>
-	  <%= image_tag('easyLab1.png') %>
+	    
   
 <script>
+var laold = 0;
+var loold = 0;
+var x = 15;
+var y = 0;
+var lacur = 0;
+var locur = 0;
 function success(position) {
   
   var la = document.querySelector('#lat');
   var lo = document.querySelector('#long');
-  
+  if(laold != la)
+  {
+	
+	ctx.moveTo(x,0);
+	ctx.lineTo(x, 50);
+	
+	ctx.stroke();
+	laold = la;
+	loold = lo;
+	y += 50;
+  }
   la.innerHTML = position.coords.latitude;
   lo.innerHTML = position.coords.longitude;
+  lacur = position.coords.latitude;
+  locur = position.coords.longitude;
   navigator.geolocation.clearWatch(watchid);
   var watchid = navigator.geolocation.watchPosition(success, error);
 }
@@ -31,4 +50,15 @@ if (navigator.geolocation) {
 } else {
   error('not supported');
 }
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var ctx = c.getContext("2d");
+var img = new Image();
+img.src = "<%= image_path("easyLab1.png") %>";
+ 
+img.onload = function()
+{
+ ctx.drawImage(img,0,0);
+ ctx.strokeStyle = "red";
+};
 </script>
