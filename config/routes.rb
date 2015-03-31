@@ -6,11 +6,11 @@ Labyrinth::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-
+  
 
 
   #for devise users
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   #roots to profile on default
   root 'home#home'
@@ -19,12 +19,11 @@ Labyrinth::Application.routes.draw do
   ####this was breaking my db:migrates and rake routes
   ####the problem is you need a view called get in the gps view folder
   get 'gps/labyrinth', :as => 'labyrinth'
-  get 'gps/img', :as => 'images'
-  get 'gps/img/img_the_scream', :as => 'scream'
-  #get 'home/home', :as => 'home'
+
+  get 'home/home', :as => 'home'
 
   get 'journey/relax', :as => 'relax'
-  #get 'journey/timed'
+  get 'journey/timed', :as => 'timed'
 
 
 

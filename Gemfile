@@ -12,6 +12,9 @@ gem 'fitgem'
 #devise gem
 gem 'devise'
 
+#omniauth-fitbit gem
+gem 'omniauth-fitbit'
+
 #png manipulaiton gem
 gem 'chunky_png'
 #bootstrap
