@@ -24,6 +24,7 @@ Labyrinth::Application.routes.draw do
 
   get 'journey/relax', :as => 'relax'
   get 'journey/timed', :as => 'timed'
+  get 'profile/user', :as => 'user'
 
 
 
