@@ -20,21 +20,21 @@ function success(position) {
   
   var la = document.querySelector('#lat');
   var lo = document.querySelector('#long');
-  if(laold != la)
+  if(laold != lacur)
   {
 	
-	ctx.moveTo(x,0);
-	ctx.lineTo(x, 50);
+	ctx.moveTo(x,y);
+	ctx.lineTo(x,y+1);
 	
 	ctx.stroke();
-	laold = la;
-	loold = lo;
-	y += 50;
+	laold = position.coords.latitude.toFixed(2);
+	loold = position.coords.longitude.toFixed(2);
+	y += 1;
   }
-  la.innerHTML = position.coords.latitude;
-  lo.innerHTML = position.coords.longitude;
-  lacur = position.coords.latitude;
-  locur = position.coords.longitude;
+  la.innerHTML = position.coords.latitude.toFixed(2);
+  lo.innerHTML = position.coords.longitude.toFixed(2);
+  lacur = position.coords.latitude.toFixed(2)
+  locur = position.coords.longitude.toFixed(2);
   navigator.geolocation.clearWatch(watchid);
   var watchid = navigator.geolocation.watchPosition(success, error);
 }
