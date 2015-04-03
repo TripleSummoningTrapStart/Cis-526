@@ -28,7 +28,7 @@ header #usernav a span img { position: relative; top: 8px; background: #cecece; 
 #content { display: block; width: 850px; margin: 0 auto;  }
 
 #left { display: block; width: 500px; float: left; overflow: hidden; margin-right: 20px; }
-#right { display: block; width: 300px; float: left; overflow: hidden; }
+#right { display: block; width: 330px; float: left; overflow: hidden; }
 
 
 /* @group left */
@@ -37,15 +37,15 @@ header #usernav a span img { position: relative; top: 8px; background: #cecece; 
 #userStats .pic { float: left; display: block; }
 #userStats .pic a img { padding: 7px; width:400px; height:400px;}
 
-#userStats .data { float: left; display: block; position: relative; width: 500px; height: auto; padding: 7px;  background-image: image_url('Info.jpg'); overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
+#userStats .data { float: left; display: block; position: relative; width: 475px; height: 375px; padding: 7px;  background-image: image_url('Info.jpg'); overflow:  hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
 #userStats .data h1 { font-size: 100px; color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; text-align: center; }
 #userStats .data h3 { font-size: 60px; color: #666; line-height: 0.9em; margin-bottom: 5px; }
 
 
 #userStats .data .sep {clear: both; margin-top: 40px; width: 320px; height: 1px;  margin-bottom: 0; }
 #userStats .data ul.numbers { font-size: 30px; list-style: none; width: 320px; padding-top: 7px; margin-top: 0; color: #676767; }
-#userStats .data ul.numbers li { float: left; display: block; padding-left:15px; height: 50px; text-transform: uppercase; }
-#userStats .data ul.numbers li strong { color: #434343; display: block; font-size: 50px; line-height: 1.1em; font-weight: bold; padding-top: 4px;}
+#userStats .data ul.numbers li {font-style:bold; color: black; float: left; display: block; padding-left:15px; height: 50px; text-transform: uppercase; }
+#userStats .data ul.numbers li strong { color: #434343; display: block; font-size: 65px; line-height: 1.1em; font-weight: bold; padding-top: 4px;}
 
 /* @group right */
 #right .gcontent { font-family: "Freestyle Script"; text-align: center; background-image: image_url('List.png') !important; background:no-repeat;
