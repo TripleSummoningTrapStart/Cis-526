@@ -6,14 +6,20 @@ class User < ActiveRecord::Base
 	   :omniauthable, :omniauth_providers => [:fitbit]
 	   
 	def self.from_omniauth(auth)
-		hash = request.env["omniauth.auth"]
-		render hash
+		#hash = auth
+		#render hash
         where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-		user.provider = auth.provider
+		    user.provider = auth.provider
         user.uid = auth.uid
-        user.email = auth.info.email
+        #user.email = auth.info.email
+        #user.email = auth.email
         user.password = Devise.friendly_token[0,20]
-		#user.
-		end
+        user.token = auth.credentials.token
+        user.secret = auth.credentials.secret
+        #render :text => hash
+
+        #user.save
+        end
+        session[:user_id] = user.id
 	end
 end
