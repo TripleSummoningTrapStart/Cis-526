@@ -1,0 +1,44 @@
+<head>
+  <title>User Profile</title>
+</head>
+<body id = "jobody">
+<h1 id = "relhead">Labyrinth</h1>
+<div id="content" class="clearfix">
+  <section id="left">
+    <div id="userStats" class="clearfix">
+      <div class="pic">
+        <img src="<%= @pic %>" alt="some_text">
+      </div>
+      <div class="data">
+        <h1><%= @name %></h1>
+        <h3>Manhattan, KS</h3>
+        <div class="sep"></div>
+        <ul class="numbers clearfix">
+
+           <li>Age<strong>21</strong></li>
+          <li>Height<strong><%= Float("%.#{0}g" % (@height/12)) %></strong></li>
+          <li>Weight<strong><%= @weight %></strong></li>
+        </ul>
+      </div>
+    </div>
+    <%= link_to image_tag('Logout.png') , user_destroy_path %>
+  </section>
+  <section id="right">
+    <div class="gcontent">
+      <div class="head"><h1>Achievements</h1></div>
+      <div class="boxy">
+        <p></p>
+        <div class="badgeCount">
+        </div>
+      </div>
+    </div>
+    <div class="gcontent">
+      <div class="head"><h1>Goals</h1></div>
+    </div>
+  </section>
+</div>
+</body>
+
+
+
+<p><%= link_to "Logout", user_destroy_path %></p>
