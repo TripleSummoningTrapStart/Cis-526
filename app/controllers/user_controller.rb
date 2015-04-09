@@ -20,11 +20,16 @@ def create
   #user.save
   session[:user_id] = user.id
   flash[:notice] = 'Signed In'
+  redirect_to user_show_path
 end
 
 def destroy
-  session[:user_id] = nil
+  user = session[:user_id]
+  if(user != nil)
+    user = nil
+  end
   flash[:notice] = 'Signed Out'
+  redirect_to root_path
 end
 
   def index
@@ -65,8 +70,7 @@ def getActivites
   @height = fuckrails['user']['height']
   @weight = fuckrails['user']['weight']
 end
-def signif(signs)
-  Float("%.#{signs}g" % self)
-end
+
+
 
 end
