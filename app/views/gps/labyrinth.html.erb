@@ -1,25 +1,26 @@
-<h1>Labyrinth</h1>
-<meta name="viewport" content="width=620" />
-<canvas id="myCanvas" width="209" height="369" style="border:0px solid #000000;">
+<h1 id="labhead">Labyrinth</h1>
+<body id="mapbod">
+
+<canvas id="myCanvas" width="606" height="606">
 </canvas>
   <article>
-    
+ <body>   
 	  <p>Latitude: <span id="lat">checking...</span></p>
 	  <p>Longitude: <span id="long">checking...</span></p>
     </article>
 	    
-		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class = "arrow-up" type="button" onclick ="setUp()">hello</button>
+		<button class = "arrow-up" type="button" onclick ="setUp()">hello</button>
 		 <p>
 		 <button class = "arrow-left" type="button" onclick ="setLeft()">hello</button>
-		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 		 <button class = "arrow-right" type="button" onclick ="setRight()">hello</button>
 		 </p>
-		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class = "arrow-down" type="button" onclick ="setDown()">hello</button>
+		<button class = "arrow-down" type="button" onclick ="setDown()">hello</button>
   
 <script>
 var laold = 0;
 var loold = 0;
-var x = 9;
+var x = 60;
 var y = 0;
 var lacur = 0;
 var locur = 0;
@@ -47,47 +48,55 @@ var dir = 'down';
   }
 function success(position) {
   
- 
-  if(laold != lacur)
-  {
-	ctx.moveTo(x,y);
-	switch(dir)
-	{
-		case 'left':
-			ctx.lineTo(x - 1,y);
-			counter += 1;
-			if( x > 0)
-			{
-				x -= 1;
-			}
-			break;
-		case 'right':
-			ctx.lineTo(x + 1,y);
-			counter += 1;
-			if(x < 100)
-			{
-				x += 1;
-			}
-			break;
-		case 'up':
-			ctx.lineTo(x,y - 1);
-			counter += 1;
-			if(y > 0)
-			{
-				y -= 1;
-			}
-			break;
-		case 'down':
-			//ctx.lineTo(x,y + 1);
-			ctx.fillRect(x,y + 5, 24,24);
-			counter += 1;
-			if (y < 100)
-			{
-			y += 24;
-			}
-			break;
-		default: break;
-	}
+  
+
+	  if(laold != lacur)
+	  {
+	    var col;
+		ctx.moveTo(x,y);
+		switch(dir)
+		{
+			case 'left':
+			    col = checkcollision(x - 1, y)
+				if(col == 0)
+				{
+					ctx.lineTo(x - 1,y);
+					counter += 1;
+					x -= 1;
+				}
+				break;
+			case 'right':
+				col = checkcollision(x + 1, y)
+				if(col == 0)
+				{
+				ctx.lineTo(x + 1,y);
+				counter += 1;
+					x += 1;
+				}
+				break;
+			case 'up':
+				col = checkcollision(x, y - 1)
+				if(col == 0)
+				{
+				ctx.lineTo(x,y - 1);
+				counter += 1;
+					y -= 1;
+				}
+				break;
+			case 'down':
+				col = checkcollision(x, y + 10)
+				if(col == 0)
+				{
+				 ctx.lineTo(x,y + 10);
+				 //ctx.fillRect(x,y + 5, 24,2);
+					counter += 1;
+					y += 1;
+				}
+				break;
+			default: break;
+		}
+		
+
 	
 	ctx.stroke();
 	laold = position.coords.latitude;
@@ -97,10 +106,10 @@ function success(position) {
   counter1 += 1;
   la.innerHTML = counter1;
   lo.innerHTML = counter;
-  lacur = position.coords.latitude + 1;
+  lacur = position.coords.latitude;
   locur = position.coords.longitude;
   //navigator.geolocation.clearWatch(watchid);
-  navigator.geolocation.getCurrentPosition(success, error, {'enableHighAccuracy':true, 'maximumAge': 1000});
+  navigator.geolocation.getCurrentPosition(success, error, {'enableHighAccuracy':true, 'maximumAge': 100});
 }
 function error(msg) {
 	lo.innterHTML = 'error';
@@ -112,15 +121,28 @@ if (navigator.geolocation) {
 } else {
   error('not supported');
 }
+function checkcollision(checkx, checky){
+        var collision = 0;
+        var imgd = ctx.getImageData(checkx, checky, 5, 5);
+        var pix = imgd.data;
+        for (var i = 0; i < (10 * 10) * 4; i += 1){
+            if (pix[i] == 255) {
+                collision = 1;
+				}
+        }
+        //console.log("colision fromn the function: "+collision);
+        return collision;
+    }
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var img = new Image();
-img.src = "<%= image_path("easyLab1.png") %>";
+img.src = "<%= image_path("easyLab2.png") %>";
  
 img.onload = function()
 {
  ctx.drawImage(img,0,0);
- ctx.fillStyle = "red";
- ctx.strokeStyle = "black";
+ //ctx.fillStyle = "red";
+ ctx.strokeStyle = "red";
 };
 </script>
+<body/>
