@@ -8,60 +8,119 @@
 	  <p>Longitude: <span id="long">checking...</span></p>
     </article>
 	    
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class = "arrow-up" type="button" onclick ="setUp()">hello</button>
+		 <p>
+		 <button class = "arrow-left" type="button" onclick ="setLeft()">hello</button>
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		 <button class = "arrow-right" type="button" onclick ="setRight()">hello</button>
+		 </p>
+		 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class = "arrow-down" type="button" onclick ="setDown()">hello</button>
   
 <script>
 var laold = 0;
 var loold = 0;
-var x = 15;
+var x = 9;
 var y = 0;
 var lacur = 0;
 var locur = 0;
+var counter = 0;
+var counter1 = 0;
+var dir = 'down';
+
+ var la = document.querySelector('#lat');
+  var lo = document.querySelector('#long');
+  function setLeft()
+  {
+	dir = 'left';
+  }
+    function setRight()
+  {
+	dir = 'right';
+  }
+    function setUp()
+  {
+	dir = 'up';
+  }
+    function setDown()
+  {
+	dir = 'down';
+  }
 function success(position) {
   
-  var la = document.querySelector('#lat');
-  var lo = document.querySelector('#long');
+ 
   if(laold != lacur)
   {
-	
 	ctx.moveTo(x,y);
-	ctx.lineTo(x,y+1);
+	switch(dir)
+	{
+		case 'left':
+			ctx.lineTo(x - 1,y);
+			counter += 1;
+			if( x > 0)
+			{
+				x -= 1;
+			}
+			break;
+		case 'right':
+			ctx.lineTo(x + 1,y);
+			counter += 1;
+			if(x < 100)
+			{
+				x += 1;
+			}
+			break;
+		case 'up':
+			ctx.lineTo(x,y - 1);
+			counter += 1;
+			if(y > 0)
+			{
+				y -= 1;
+			}
+			break;
+		case 'down':
+			//ctx.lineTo(x,y + 1);
+			ctx.fillRect(x,y + 5, 24,24);
+			counter += 1;
+			if (y < 100)
+			{
+			y += 24;
+			}
+			break;
+		default: break;
+	}
 	
 	ctx.stroke();
-	laold = position.coords.latitude.toFixed(2);
-	loold = position.coords.longitude.toFixed(2);
-	y += 1;
+	laold = position.coords.latitude;
+	loold = position.coords.longitude;
   }
-  la.innerHTML = position.coords.latitude.toFixed(2);
-  lo.innerHTML = position.coords.longitude.toFixed(2);
-  lacur = position.coords.latitude.toFixed(2)
-  locur = position.coords.longitude.toFixed(2);
-  navigator.geolocation.clearWatch(watchid);
-  var watchid = navigator.geolocation.watchPosition(success, error);
+  //.toFixed(2);
+  counter1 += 1;
+  la.innerHTML = counter1;
+  lo.innerHTML = counter;
+  lacur = position.coords.latitude + 1;
+  locur = position.coords.longitude;
+  //navigator.geolocation.clearWatch(watchid);
+  navigator.geolocation.getCurrentPosition(success, error, {'enableHighAccuracy':true, 'maximumAge': 1000});
 }
 function error(msg) {
-  var s = document.querySelector('#status');
-  s.innerHTML = typeof msg == 'string' ? msg : "failed";
-  s.className = 'fail';
+	lo.innterHTML = 'error';
   
   // console.log(arguments);
 }
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error);
+  navigator.geolocation.getCurrentPosition(success, error, {'enableHighAccuracy':true, 'maximumAge': 1000});
 } else {
   error('not supported');
 }
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
-<<<<<<< HEAD
-=======
-var ctx = c.getContext("2d");
->>>>>>> master
 var img = new Image();
 img.src = "<%= image_path("easyLab1.png") %>";
  
 img.onload = function()
 {
  ctx.drawImage(img,0,0);
- ctx.strokeStyle = "red";
+ ctx.fillStyle = "red";
+ ctx.strokeStyle = "black";
 };
 </script>
