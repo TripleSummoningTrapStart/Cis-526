@@ -1,3 +1,15 @@
 // Place all the styles related to the map controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#mapbod{
+
+  background-image: image-url('Brick.jpg') !important;
+  background-size:contain;
+  padding-left: 0px !important;
+  line-height: normal !important;
+}
+
+#myCanvas{
+  background-image: image-url('Info.jpg') !important;
+  margin-left: 400px;
+}

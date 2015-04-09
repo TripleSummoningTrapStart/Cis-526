@@ -1,6 +1,6 @@
-<h1>Labyrinth</h1>
-<meta name="viewport" content="width=620" />
-<canvas id="myCanvas" width="209" height="369" style="border:0px solid #000000;">
+<h1 id="labhead">Labyrinth</h1>
+<body id="mapbod">
+<canvas id="myCanvas" width="209" height="369">
 </canvas>
   <article>
     
@@ -55,10 +55,10 @@ var ctx = c.getContext("2d");
 var ctx = c.getContext("2d");
 var img = new Image();
 img.src = "<%= image_path("easyLab1.png") %>";
- 
 img.onload = function()
 {
  ctx.drawImage(img,0,0);
  ctx.strokeStyle = "red";
 };
 </script>
+<body/>
