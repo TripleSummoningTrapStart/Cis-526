@@ -61,6 +61,12 @@ def getActivites
  # render :text => hello['goals']['caloriesOut']
   #render :text => fuckrails['user']['avatar']
   @pic = fuckrails['user']['avatar']
+  @name = fuckrails['user']['fullName']
+  @height = fuckrails['user']['height']
+  @weight = fuckrails['user']['weight']
+end
+def signif(signs)
+  Float("%.#{signs}g" % self)
 end
 
 end
