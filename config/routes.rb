@@ -10,7 +10,7 @@ Labyrinth::Application.routes.draw do
 
 
   #for devise users
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  #devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   #roots to profile on default
   root 'home#home'
@@ -19,12 +19,18 @@ Labyrinth::Application.routes.draw do
   ####this was breaking my db:migrates and rake routes
   ####the problem is you need a view called get in the gps view folder
   get 'gps/labyrinth', :as => 'labyrinth'
+  get 'user/show' => 'user#show'
+
 
   get 'home/home', :as => 'home'
 
   get 'journey/relax', :as => 'relax'
   get 'journey/timed', :as => 'timed'
 
+  get '/auth/fitbit/callback' => 'user#create'
+
+  get 'profile/show', :as => 'profile'
+  get 'user/destroy' => 'user#destroy'
 
 
   # Example of regular route:

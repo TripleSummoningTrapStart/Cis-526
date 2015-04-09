@@ -10,7 +10,9 @@ gem 'sqlite3'
 gem 'fitgem'
 
 #devise gem
-gem 'devise'
+#gem 'devise'
+
+gem 'omniauth'
 
 #omniauth-fitbit gem
 gem 'omniauth-fitbit'

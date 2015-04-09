@@ -1,4 +1,9 @@
 class ProfileController < ApplicationController
+  #def show
+ #   @client = createClient()
+  #  getActivites()
+  #end
+
   def createClient
     @current_user = User.find(session[:user_id])
 
@@ -11,6 +16,14 @@ class ProfileController < ApplicationController
         :ssl => true
     )
 
+  end
+
+  def getActivites
+    activity = @client.activities_on_date('today')
+    #render :text => activity
+    hello = @client.goals
+    #render :text => activity['summary']['caloriesOut']
+    render :text => hello['goals']['caloriesOut']
   end
 
 end

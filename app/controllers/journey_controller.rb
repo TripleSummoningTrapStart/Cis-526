@@ -1,2 +1,3 @@
 class JourneyController < ApplicationController
+
 end
