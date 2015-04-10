@@ -4,6 +4,10 @@
 /* global.css styles */
 /* @group resets and elements */
 img { border: 0; }
+#fitpic {
+  width:475px;
+  height: 400px;
+}
 ul { line-height: 120%; }
 #userp { font-size: 1.2em; line-height: 1.4em; font-family: Arial, sans-serif; color: #333; margin-bottom: 15px; }
 #userh1 { font-family: Helvetica, Arial, Verdana, sans-serif; color: #444; font-weight: bold; font-size: 1.7em; line-height: 2.0em; }
@@ -22,7 +26,7 @@ header #usernav a span img { position: relative; top: 8px; background: #cecece; 
 /* @group left */
 #userStats { font-family:"Freestyle Script";display: block; width: auto; -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; padding: 12px; text-align: center; }
 #userStats .pic { float: left; display: block; }
-#userStats .pic a img { padding: 7px; width:400px; height:400px;}
+#userStats .pic a img { padding: 7px; }
 #userStats .data { float: left; display: block; position: relative; width: 475px; height: 375px; padding: 7px; background-image: image_url('Info.jpg'); overflow: hidden; box-sizing: border-box; -moz-box-sizing: border-box; }
 #userStats .data h1 { font-size: 100px; color: #474747; line-height: 1.6em; text-shadow: 0px 1px 1px #fff; text-align: center; }
 #userStats .data h3 { font-size: 60px; color: #666; line-height: 0.9em; margin-bottom: 5px; }
@@ -49,3 +53,7 @@ html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 .nobrdr { border: 0px !important; }
 
+#profbod {
+  background-image: image-url('Brick.jpg')!important;
+  background-size: cover;
+}

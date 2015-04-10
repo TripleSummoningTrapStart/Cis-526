@@ -7,7 +7,7 @@
   <section id="left">
     <div id="userStats" class="clearfix">
       <div class="pic">
-        <img src="<%= @pic %>" alt="some_text">
+        <img id="fitpic" src="<%= @pic %>" alt="some_text">
       </div>
       <div class="data">
         <h1><%= @name %></h1>
@@ -21,6 +21,8 @@
         </ul>
       </div>
     </div>
+    <%= link_to image_tag('Fitbit.png') , home_path %>
+
     <%= link_to image_tag('Logout.png') , user_destroy_path %>
   </section>
   <section id="right">
