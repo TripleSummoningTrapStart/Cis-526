@@ -61,7 +61,7 @@ def getActivites
   activity = @client.activities_on_date('today')
   fuckrails = @client.user_info
   #render :text => activity
-  @goals = @client.goals
+  goals = @client.goals
   #render :text => activity['summary']['caloriesOut']
  # render :text => hello['goals']['caloriesOut']
   #render :text => fuckrails['user']['avatar']
@@ -69,8 +69,13 @@ def getActivites
   @name = fuckrails['user']['fullName']
   @height = fuckrails['user']['height']
   @weight = fuckrails['user']['weight']
+  @Steps = goals['goals']['steps']
+  @Steps2 = activity['summary']['steps']
+  @Cals = goals['goals']['caloriesOut']
+  @Cals2 = activity['summary']['caloriesOut']
+  @Dist = goals['goals']['distance']
+  @Dist2 = activity['distance']
 end
-
 
 
 end

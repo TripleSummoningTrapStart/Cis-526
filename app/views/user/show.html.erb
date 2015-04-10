@@ -21,15 +21,24 @@
         </ul>
       </div>
     </div>
-<<<<<<< HEAD
-    <%= link_to image_tag('Fitbit.png') , home_path %>
 
-=======
     <%= link_to image_tag('Relax.png') , relax_path %>
->>>>>>> origin/master
+
+    <%= link_to image_tag('Time.png') , timed_path %>
+
     <%= link_to image_tag('Logout.png') , user_destroy_path %>
   </section>
   <section id="right">
+    <div class="gcontent">
+      <div class="head"><h1>Goals</h1></div>
+      <h2>Steps: <%= @Steps2  %>/<%= @Steps  %></h2>
+      <!--<h2>Steps Today: <%= @Steps2  %></h2>-->
+      <h2>Calories: <%= @Cals2  %>/<%= @Cals  %></h2>
+     <!-- <h2>Miles: <%= @Dist2  %>/<%= @Dist  %></h2>-->
+     <!-- <h2>Calories Burned: <%= @Cals2  %></h2>-->
+      <!--<h3>Miles: <%= @Dist  %></h3>
+      <h3>Miles Today: <%= @Dist2  %></h3>-->
+    </div>
     <div class="gcontent">
       <div class="head"><h1>Achievements</h1></div>
       <div class="boxy">
@@ -37,9 +46,6 @@
         <div class="badgeCount">
         </div>
       </div>
-    </div>
-    <div class="gcontent">
-      <div class="head"><h1>Goals</h1></div>
     </div>
   </section>
 </div>
