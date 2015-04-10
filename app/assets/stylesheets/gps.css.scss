@@ -5,36 +5,49 @@ button {
   color: blue;
   background-color: transparent;
   border: 0px none transparent;
+ 
 }
 .arrow-down {
 	width: 0; 
 	height: 0; 
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	
-	border-top: 20px solid #f00;
+	border-left: 125px solid transparent;
+	border-right: 125px solid transparent;
+	 margin-left: 350px;
+	border-top: 125px solid #000;
 }
 .arrow-up {
 	width: 0; 
 	height: 0; 
-	border-left: 20px solid transparent;
-	border-right: 20px solid transparent;
-	
-	border-bottom: 20px solid #f00;
+	border-left: 125px solid transparent;
+	border-right: 125px solid transparent;
+	 margin-left: 350px;
+	border-bottom: 125px solid #000;
 }
 .arrow-left {
 	width: 0; 
 	height: 0; 
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	
-	border-right: 20px solid #f00;
+	border-top: 125px solid transparent;
+	border-bottom: 125px solid transparent;
+	 margin-left: 190px;
+	border-right: 125px solid #000;
 }
 .arrow-right {
 	width: 0; 
 	height: 0; 
-	border-top: 20px solid transparent;
-	border-bottom: 20px solid transparent;
-	
-	border-left: 20px solid #f00;
+	border-top: 125px solid transparent;
+	border-bottom: 125px solid transparent;
+	 margin-left: 310px;
+	border-left: 125px solid #000;
+}
+#mapbod{
+
+  background-image: image-url('Info.jpg') !important;
+  background-size:contain;
+  padding-left: 0px !important;
+  line-height: normal !important;
+}
+
+#myCanvas{
+  background-image: image-url('<%= image_path("info.png") %>') !important;
+  margin-left: 200px;
 }
