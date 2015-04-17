@@ -3,19 +3,17 @@
 
 <canvas id="myCanvas" width="606" height="606">
 </canvas>
-  <article>
- <body>   
-	  <p>Latitude: <span id="lat">checking...</span></p>
-	  <p>Longitude: <span id="long">checking...</span></p>
-    </article>
-	    
-		<button class = "arrow-up" type="button" onclick ="setUp()">hello</button>
-		 <p>
-		 <button class = "arrow-left" type="button" onclick ="setLeft()">hello</button>
 
-		 <button class = "arrow-right" type="button" onclick ="setRight()">hello</button>
+ <body>   
+
+	    
+		<button class = "arrow-up" type="button" onclick ="setUp()"></button>
+		 <p>
+		 <button class = "arrow-left" type="button" onclick ="setLeft()"></button>
+
+		 <button class = "arrow-right" type="button" onclick ="setRight()"></button>
 		 </p>
-		<button class = "arrow-down" type="button" onclick ="setDown()">hello</button>
+		<button class = "arrow-down" type="button" onclick ="setDown()"></button>
   
 <script>
 var laold = 0;
@@ -103,9 +101,6 @@ function success(position) {
 	loold = position.coords.longitude;
   }
   //.toFixed(2);
-  counter1 += 1;
-  la.innerHTML = counter1;
-  lo.innerHTML = counter;
   lacur = position.coords.latitude;
   locur = position.coords.longitude;
   //navigator.geolocation.clearWatch(watchid);

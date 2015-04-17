@@ -12,9 +12,10 @@
 
   <li id ="labitem" ><%= link_to image_tag('Time.png') , timed_path %></li>
 
-  <li id ="labitem" ><%= link_to image_tag('User.png') , relax_path %></li>
+  <li id ="labitem" ><%= link_to image_tag('User.png') , '/auth/fitbit/' %></li>
 
-  <li id ="labitem"><%= link_to image_tag('Logout.png') , relax_path %></li>
+  <li id ="labitem"><%= link_to image_tag('Logout.png') , user_destroy_path %></li>
+
 
 </ul>
 </body>

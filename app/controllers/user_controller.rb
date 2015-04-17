@@ -20,11 +20,16 @@ def create
   #user.save
   session[:user_id] = user.id
   flash[:notice] = 'Signed In'
+  redirect_to user_show_path
 end
 
 def destroy
-  session[:user_id] = nil
+  user = session[:user_id]
+  if(user != nil)
+    user = nil
+  end
   flash[:notice] = 'Signed Out'
+  redirect_to root_path
 end
 
   def index
@@ -56,11 +61,21 @@ def getActivites
   activity = @client.activities_on_date('today')
   fuckrails = @client.user_info
   #render :text => activity
-  @goals = @client.goals
+  goals = @client.goals
   #render :text => activity['summary']['caloriesOut']
  # render :text => hello['goals']['caloriesOut']
   #render :text => fuckrails['user']['avatar']
   @pic = fuckrails['user']['avatar']
+  @name = fuckrails['user']['fullName']
+  @height = fuckrails['user']['height']
+  @weight = fuckrails['user']['weight']
+  @Steps = goals['goals']['steps']
+  @Steps2 = activity['summary']['steps']
+  @Cals = goals['goals']['caloriesOut']
+  @Cals2 = activity['summary']['caloriesOut']
+  @Dist = goals['goals']['distance']
+  @Dist2 = activity['distance']
 end
+
 
 end
