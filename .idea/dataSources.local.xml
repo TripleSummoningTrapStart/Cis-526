@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails Labyrinth: development" uuid="48268077-800c-464b-a7e7-e6c37bbb4366">
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="Rails Labyrinth: test" uuid="dd11598f-f815-4ee6-9719-aa15e4af9ab6">
+      <first-sync>true</first-sync>
+    </data-source>
+  </component>
+</project>
