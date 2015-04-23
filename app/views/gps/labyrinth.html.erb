@@ -6,7 +6,7 @@
 
  <body>   
 
-	    
+	    //4 direction buttons for the user to press to change their direction. Each one is set to a different method
 		<button class = "arrow-up" type="button" onclick ="setUp()"></button>
 		 <p>
 		 <button class = "arrow-left" type="button" onclick ="setLeft()"></button>
@@ -17,17 +17,16 @@
   
 <script>
 var laold = 0;
-var loold = 0;
+//var loold = 0;
 var x = 60;
 var y = 0;
 var lacur = 0;
-var locur = 0;
+//var locur = 0;
 var counter = 0;
 var counter1 = 0;
 var dir = 'down';
 
- var la = document.querySelector('#lat');
-  var lo = document.querySelector('#long');
+  //Methods to set the direction
   function setLeft()
   {
 	dir = 'left';
@@ -44,6 +43,8 @@ var dir = 'down';
   {
 	dir = 'down';
   }
+  
+ /*this method deals with the actual gps, it will check for difference in lat and if there is a difference the function will draw in the specified direction while check to make sure they didn't hit a wall */
 function success(position) {
   
   
@@ -52,43 +53,47 @@ function success(position) {
 	  {
 	    var col;
 		ctx.moveTo(x,y);
+		//Direction switch
 		switch(dir)
 		{
 			case 'left':
-			    col = checkcollision(x - 1, y)
+			    col = checkcollision(x - 5, y)
 				if(col == 0)
 				{
-					ctx.lineTo(x - 1,y);
+					ctx.lineTo(x - 5,y);
+					//ctx.fillRect((x - 10),y 24,2);
 					counter += 1;
-					x -= 1;
+					x -= 5;
 				}
 				break;
 			case 'right':
-				col = checkcollision(x + 1, y)
+				col = checkcollision(x + 5, y)
 				if(col == 0)
 				{
-				ctx.lineTo(x + 1,y);
+				ctx.lineTo(x + 5,y);
+				//ctx.fillRect((x + 10),y, 24,2);
 				counter += 1;
-					x += 1;
+					x += 5
 				}
 				break;
 			case 'up':
-				col = checkcollision(x, y - 1)
+				col = checkcollision(x, y - 5)
 				if(col == 0)
 				{
-				ctx.lineTo(x,y - 1);
+				ctx.lineTo(x,y - 5);
+				//ctx.fillRect(x,(y - 1), 24,2);
 				counter += 1;
-					y -= 1;
+					y -= 5;
 				}
 				break;
 			case 'down':
-				col = checkcollision(x, y + 10)
+				col = checkcollision(x, y + 5)
 				if(col == 0)
 				{
-				 ctx.lineTo(x,y + 10);
-				 //ctx.fillRect(x,y + 5, 24,2);
+				 ctx.lineTo(x,y + 5);
+				 //ctx.fillRect(x,(y + 10), 24,2);
 					counter += 1;
-					y += 1;
+					y += 5;
 				}
 				break;
 			default: break;
@@ -98,24 +103,32 @@ function success(position) {
 	
 	ctx.stroke();
 	laold = position.coords.latitude;
-	loold = position.coords.longitude;
+	//loold = position.coords.longitude;
   }
   //.toFixed(2);
+
+
   lacur = position.coords.latitude;
-  locur = position.coords.longitude;
+  //locur = position.coords.longitude;
   //navigator.geolocation.clearWatch(watchid);
+  
+  //polls gps again
   navigator.geolocation.getCurrentPosition(success, error, {'enableHighAccuracy':true, 'maximumAge': 100});
 }
+//Error function for GPS
 function error(msg) {
 	lo.innterHTML = 'error';
   
   // console.log(arguments);
 }
+//Asks for user permission to use gps, if allowed starts polling, else calls an error
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(success, error, {'enableHighAccuracy':true, 'maximumAge': 1000});
 } else {
   error('not supported');
 }
+
+/* This is a method to check whether a player has hit a wall in the game, if so, it sends back true This method will also check to see if the player has hit the winning tile and calls the proper method */
 function checkcollision(checkx, checky){
         var collision = 0;
         var imgd = ctx.getImageData(checkx, checky, 5, 5);
@@ -124,20 +137,35 @@ function checkcollision(checkx, checky){
             if (pix[i] == 255) {
                 collision = 1;
 				}
+				if(pix[i] > 10 && pix[i] < 0)
+				{
+					Win();
+				}
         }
         //console.log("colision fromn the function: "+collision);
         return collision;
     }
+//Function called when the player wins
+function Win()
+{
+
+
+{
+//Canvas variables
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var img = new Image();
 img.src = "<%= image_path("easyLab2.png") %>";
- 
+
+//Function to wait until image loads to add it to canvas
 img.onload = function()
 {
- ctx.drawImage(img,0,0);
- //ctx.fillStyle = "red";
- ctx.strokeStyle = "red";
+ctx.drawImage(img,0,0);
+    ctx.save();
+    ctx.globalAlpha = 0.95;
+ 
+ ctx.fillStyle = "red";
+ //ctx.strokeStyle = "red";
 };
 </script>
 <body/>
