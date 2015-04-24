@@ -77,6 +77,9 @@ def getActivites
   @Cals2 = activity['summary']['caloriesOut']
   @Dist = goals['goals']['distance']
   @Dist2 = activity['distance']
+ # @height =  Float("%.#{0}g" % (@height/12))
+
+
 end
 
 
