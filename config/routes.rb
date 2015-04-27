@@ -19,6 +19,7 @@ Labyrinth::Application.routes.draw do
   ####this was breaking my db:migrates and rake routes
   ####the problem is you need a view called get in the gps view folder
   get 'gps/labyrinth', :as => 'labyrinth'
+  get 'gps/timer', :as => 'timer'
   get 'user/show' => 'user#show'
 
 

@@ -1,9 +1,12 @@
 class UserController < ApplicationController
-def show
+
+  #used to show the users information from fitbit
+  def show
   @client = createClient()
   getActivites()
 end
 
+#creates a user when requested too
 def create
   auth = request.env['omniauth.auth']
 
@@ -23,6 +26,8 @@ def create
   redirect_to user_show_path
 end
 
+
+#Destroys user session to logout
 def destroy
   user = session[:user_id]
   if(user != nil)
@@ -32,17 +37,13 @@ def destroy
   redirect_to root_path
 end
 
+  #used to index users
   def index
     @users = User.all
   end
 
-  #def show
-    #@user = User.find(params[:id])
-   # unless @user == current_user
-    #  redirect_to :back, :alert => "Access denied."
-    #end
- # end
 
+#opens a client to the fitbit server to grab user data
 def createClient
   @current_user = User.find(session[:user_id])
 
@@ -57,24 +58,28 @@ def createClient
 
 end
 
+  #gets the activites from teh fitgem
 def getActivites
   activity = @client.activities_on_date('today')
-  fuckrails = @client.user_info
+  userinfo = @client.user_info
   #render :text => activity
   goals = @client.goals
   #render :text => activity['summary']['caloriesOut']
  # render :text => hello['goals']['caloriesOut']
-  #render :text => fuckrails['user']['avatar']
-  @pic = fuckrails['user']['avatar']
-  @name = fuckrails['user']['fullName']
-  @height = fuckrails['user']['height']
-  @weight = fuckrails['user']['weight']
+  #render :text => userinfo['user']['avatar']
+  @pic = userinfo['user']['avatar']
+  @name = userinfo['user']['fullName']
+  @height = userinfo['user']['height']
+  @weight = userinfo['user']['weight']
   @Steps = goals['goals']['steps']
   @Steps2 = activity['summary']['steps']
   @Cals = goals['goals']['caloriesOut']
   @Cals2 = activity['summary']['caloriesOut']
   @Dist = goals['goals']['distance']
   @Dist2 = activity['distance']
+ # @height =  Float("%.#{0}g" % (@height/12))
+
+
 end
 
 
