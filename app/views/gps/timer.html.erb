@@ -4,15 +4,16 @@
 <canvas id="myCanvas" width="606" height="606">
 </canvas>
 
- <body>   
-		<p id="time"></p>
+ <body>   	<article id="time"></article>
+ <div>
 		<button class = "arrow-up" type="button" onclick ="setUp()"></button>
 		 <p>
 		 <button class = "arrow-left" type="button" onclick ="setLeft()"></button>
-
+		
 		 <button class = "arrow-right" type="button" onclick ="setRight()"></button>
 		 </p>
 		<button class = "arrow-down" type="button" onclick ="setDown()"></button>
+		</div>
   
 <script>
 var laold = 0;
@@ -21,9 +22,12 @@ var y = 0;
 var lacur = 0;
 var dir = 'down';
 var timer = setInterval(function() {mapTimer()}, 1000);
-var hours = 0;
-var minutes = 0;
-var seconds = 0;
+var tensHours = 0;
+var onesHours = 0;
+var onesMinutes = 0;
+var tensMinutes = 0;
+var onesSeconds = 0;
+var tensSeconds = 0;
 
   //Methods to set the direction
   function setLeft()
@@ -44,25 +48,42 @@ var seconds = 0;
   }
   function mapTimer()
   {
-	seconds++
-	if(seconds == 60)
+	onesSeconds++
+	if(onesSeconds == 10)
 	{
-		minutes++;
-		seconds = 0;
-		if(minutes == 60)
+		tensSeconds++;
+		onesSeconds = 0;
+		if(tensSeconds == 6)
 		{
-			hours++;
-			minutes = 0;
+			tensSeconds = 0;
+			onesMinutes++;
+			if(onesMinutes == 10)
+			{
+				tensMinutes++;
+				onesMinutes = 0;
+				if(tensMinutes == 6)
+				{
+					tensMinutes = 0;
+					onesHours++;
+					if(onesHours == 10)
+					{
+						tensHours++;
+						onesHours = 0;
+					}
+				}
+			}
 		}
+		
 	}
-	document.getElementById("time").innerHTML = hours.toString() + ':' + minutes.toString() + ':' + seconds.toString();
+	document.getElementById("time").innerHTML = tensHours.toString() + onesHours.toString() + ':' + tensMinutes.toString() + onesMinutes.toString() + ':' + tensSeconds.toString() + onesSeconds.toString();
   }
  /*this method deals with the actual gps, it will check for difference in lat and if there is a difference the function will draw in the specified direction while check to make sure they didn't hit a wall */
 function success(position) {
   
   
 
-	  if(laold != lacur)
+	  //if(laold != lacur)
+	  if(true)
 	  {
 	    var col;
 		ctx.moveTo(x,y);
