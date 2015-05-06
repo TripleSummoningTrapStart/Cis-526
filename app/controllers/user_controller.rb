@@ -71,16 +71,32 @@ def getActivites
   @name = userinfo['user']['fullName']
   @height = userinfo['user']['height']
   @weight = userinfo['user']['weight']
+  @age = userinfo['user']['age']
+  #@height =  Float("%.#{0}g" % (@height/12))
+  @height = calculateHeight
+  #render :text => @newheight
   @Steps = goals['goals']['steps']
   @Steps2 = activity['summary']['steps']
   @Cals = goals['goals']['caloriesOut']
   @Cals2 = activity['summary']['caloriesOut']
   @Dist = goals['goals']['distance']
   @Dist2 = activity['distance']
- # @height =  Float("%.#{0}g" % (@height/12))
+
 
 
 end
+
+  #calculates feet and inches from only inches
+  def calculateHeight
+  inches = @height%12
+  feet = @height/12
+  feet = feet.floor
+  inches = inches.round
+   height = " #{feet}'#{inches}"
+height
+end
+
+
 
 
 end

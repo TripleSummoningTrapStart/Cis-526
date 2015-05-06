@@ -15,8 +15,8 @@
         <div class="sep"></div>
         <ul class="numbers clearfix">
 
-           <li>Age<strong>21</strong></li>
-          <li>Height<strong><%= Float("%.#{0}g" % (@height/12)) %></strong></li>
+           <li>Age<strong><%=@age%></strong></li>
+          <li>Height<strong><%= @height %></strong></li>
           <li>Weight<strong><%= @weight %></strong></li>
         </ul>
       </div>
