@@ -5,14 +5,14 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Pino\RubymineProjects\Labyrinth\db\development.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\College\CIS 526\Labyrinth\db\development.sqlite3</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails Labyrinth: test" uuid="dd11598f-f815-4ee6-9719-aa15e4af9ab6">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\Pino\RubymineProjects\Labyrinth\db\test.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:D:\College\CIS 526\Labyrinth\db\test.sqlite3</jdbc-url>
       <libraries />
     </data-source>
   </component>
